@@ -14,7 +14,9 @@ const errors = readdirSync(dir)
       existsSync(docs[0]) && existsSync(docs[1]),
       `doc ${docs[0]} or ${docs[1]} don't exists.`
     );
-    memo[error] = Object.assign(require(join(dir, error)), {
+    const indexFile = join(dir, error, 'index.js');
+    const errorObj = existsSync(indexFile) ? require(indexFile) : {};
+    memo[error] = Object.assign(errorObj, {
       details: {
         'en': readFileSync(docs[0], 'utf-8'),
         'zh-CN': readFileSync(docs[1], 'utf-8'),
