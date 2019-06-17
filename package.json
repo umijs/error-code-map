@@ -1,6 +1,6 @@
 {
   "name": "@umijs/error-code-map",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Error code map for umi.",
   "main": "index.js",
   "scripts": {
