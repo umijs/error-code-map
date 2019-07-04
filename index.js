@@ -7,8 +7,10 @@ const errors = readdirSync(dir)
   .filter(error => error.startsWith('ERR_'))
   .reduce((memo, error) => {
     const docs = [
-      join(dir, error, 'README.md'),
-      join(dir, error, 'README_zh-CN.md'),
+      // why mdx?
+      // https://github.com/cnpm/npminstall/blob/d88b7d42b31172ef53d482f4d65b2b00558ad8be/lib/download/npm.js#L529-L535
+      join(dir, error, 'README.mdx'),
+      join(dir, error, 'README_zh-CN.mdx'),
     ];
     assert(
       existsSync(docs[0]) && existsSync(docs[1]),
